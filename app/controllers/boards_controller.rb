@@ -7,6 +7,7 @@ class BoardsController < ApplicationController
 
   def show
     @board = Board.find(params[:id])
+      @cards = Card.all
 
     render("boards/show.html.erb")
   end

@@ -23,3 +23,23 @@
     </div>
   </div>
 </div>
+
+<h2>Cards</h2>
+<ul>
+  <% @cards.each do |card| %>
+  <li>
+    <%= card.title %>
+  </li>
+  <% end %>
+  
+</ul>
+
+<h2>Boards</h2>
+<ul>
+  <% @boards.each do |board| %>
+  <li>
+    <%= board.title %>
+  </li>
+  <% end %>
+  
+</ul>

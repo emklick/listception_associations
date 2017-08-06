@@ -1,0 +1,23 @@
+                <!--<h3 class="panel-title">-->
+                <!--  <a href="/cards/<%= @card.id %>">-->
+                <!--    <%= Card.where(:id => @card.id).title %>-->
+                <!--  </a>-->
+                <!--</h3>-->
+              </div>
+                  
+              <div class="panel-body">
+                <!--<div class="lead">-->
+                <!--<%= Card.where(:id => @card.id).description %>-->
+                <!--</div>-->
+                <!--<a href="/tags/<%= @card.id %>" class="label label-default">-->
+                <!--  <%= Tag.where(:id => @card.id).title %>-->
+                <!--</a>-->
+                <!--&nbsp;-->
+                <!--<a href="/tags/<%= @card.id %>" class="label label-default">-->
+                <!--  <%= Tag.where(:id => @card.id).title %>-->
+                <!--</a>-->
+                <!--&nbsp;-->
+                <!--<a href="/tags/<%= @card.id %>" class="label label-default">-->
+                <!--  <%= Tag.where(:id => @card.id).title %>-->
+                <!--</a>-->
+                <!--&nbsp;-->

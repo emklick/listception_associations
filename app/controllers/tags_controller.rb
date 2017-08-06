@@ -7,6 +7,8 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+      @cards = Card.all
+        @boards = Board.all        
 
     render("tags/show.html.erb")
   end
