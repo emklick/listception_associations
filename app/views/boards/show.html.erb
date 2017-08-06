@@ -26,3 +26,24 @@
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_list" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control">
+      </div>
+
+      <button class="btn btn-success">
+        Create List
+      </button>
+    
+    </form>
+  </div>
+</div>
