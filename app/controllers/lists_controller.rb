@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+        @boards = Board.all
 
     render("lists/show.html.erb")
   end

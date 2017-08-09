@@ -59,13 +59,22 @@
     </div>
 </div>
 
+  <% (List.where(:id => @board.id).each do |list| %>
+    <li>
+      <%= list.board_id %>
+    </li>
+    <% end %>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1 mb-2">
     <div class="panel panel-default">
       <div class="panel-body">
+        
+          <% (Card.where(:list_id => list.board_id).each do |card| %>
+        <ul>
+          <li>
         <h2>
-          Mystery
+          <%= Card.where(:list_id => @list.id).title %>
         </h2>
 
         <div class="row">
@@ -73,429 +82,30 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                    Title
                 </h3>
               </div>
                   
               <div class="panel-body">
                 <div class="lead">
-                Description
+                    <%= Card.where(:list_id => @list.id).description %>
                 </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
+                <a href="/tags/<%= @tagging_id %>" class="label label-default">
+                  <%= Tagging.where(:card_id => @card.id).name %>
                 </a>
                 &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
+
               </div>
             </div>
           </div>
         </div>
+          </li>
+        </ul>
         
         <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
+           Hidden input for authenticity token to protect from forgery 
           <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
 
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Crime/Detective
-        </h2>
-
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Short Story
-        </h2>
-
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 mb-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                    Title
-                </h3>
-              </div>
-                  
-              <div class="panel-body">
-                <div class="lead">
-                Description
-                </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Mystery
-        </h2>
-
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 mb-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                    Title
-                </h3>
-              </div>
-                  
-              <div class="panel-body">
-                <div class="lead">
-                Description
-                </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Suspense/Thriller
-        </h2>
-
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 mb-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                    Title
-                </h3>
-              </div>
-                  
-              <div class="panel-body">
-                <div class="lead">
-                Description
-                </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Reference Book
-        </h2>
-
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 mb-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                    Title
-                </h3>
-              </div>
-                  
-              <div class="panel-body">
-                <div class="lead">
-                Description
-                </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Title
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-          
-          <div class="form-group">
-            <label for="title" class="control-label">
-              Description
-            </label>
-
-            <input type="text" id="title" name="title" placeholder="Title" class="form-control">
-          </div>
-
-          <input type="hidden" id="board_id" name="board_id" value="14">
-
-          <button class="btn btn-default">
-            Create List
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 mb-2">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h2>
-          Historical Fiction
-        </h2>
-
-        <div class="row">
-          <div class="col-md-8 col-md-offset-2 mb-2">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">
-                    Title
-                </h3>
-              </div>
-                  
-              <div class="panel-body">
-                <div class="lead">
-                Description
-                </div>
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-                <a href="/tags %>" class="label label-default">
-                  Tag
-                </a>
-                &nbsp;
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <form action="/create_list" method="post">
-          <!-- Hidden input for authenticity token to protect from forgery -->
-          <input name="authenticity_token" type="hidden" value="2NfRvS9ymjUg6HCN8OZcXYdFVm65ZA/jRPwlq5JdlJqJoh78ita3nU/qUuG9ToMcoLe4NcqlVmw7OtH7f9ANSg==">
-
-          <!-- Label and input for title -->
+           Label and input for title 
           <div class="form-group">
             <label for="title" class="control-label">
               Title
